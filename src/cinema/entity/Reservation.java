@@ -1,7 +1,6 @@
 package cinema.entity;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Set;
 
 public class Reservation {
