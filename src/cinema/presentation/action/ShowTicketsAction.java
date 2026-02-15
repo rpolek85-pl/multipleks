@@ -1,6 +1,5 @@
 package cinema.presentation.action;
 
-import cinema.presentation.print.PrintBooking;
 import cinema.presentation.print.PrintTickets;
 import cinema.session.Session;
 

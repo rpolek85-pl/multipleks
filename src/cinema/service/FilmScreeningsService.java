@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class FilmScreeningsService {
+    private final CinemasService cs = new CinemasService();
+
     protected FilmScreening findById(int id, int cinemaId) {
         List<FilmScreening> filmScreenings = getFilmScreeningsForCinema(cinemaId);
 
@@ -43,11 +45,8 @@ public class FilmScreeningsService {
         return filmScreeningNames;
     }
 
-
     private List<FilmScreening> getFilmScreeningsForCinema(int cinemaId) {
-        CinemasService cs = new CinemasService();
         Cinema cinema = cs.findById(cinemaId);
-
         return cinema.getFilmScreenings();
     }
 }

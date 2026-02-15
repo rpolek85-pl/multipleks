@@ -3,10 +3,11 @@ package cinema.service;
 import cinema.entity.CinemaHall;
 import cinema.entity.Seat;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class SeatsService {
+    private final FilmScreeningsService fss = new FilmScreeningsService();
+
     protected Seat findById(int id, int filmScreeningId, int cinemaId) {
         List<Seat> seats = getCinemaHallForCinemaForFilmScreening(filmScreeningId, cinemaId).getSeats();
 
@@ -49,7 +50,6 @@ public class SeatsService {
     }
 
     private CinemaHall getCinemaHallForCinemaForFilmScreening(int filmScreeningId, int cinemaId) {
-        FilmScreeningsService fss = new FilmScreeningsService();
         return fss.findById(filmScreeningId, cinemaId).getCinemaHall();
     }
 }

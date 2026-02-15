@@ -1,11 +1,8 @@
 package cinema.presentation.action;
 
 import cinema.presentation.print.PrintFilmScreenings;
-
 import cinema.session.Session;
-
 import java.time.LocalDateTime;
-
 import java.util.Scanner;
 
 public class ScreeningsForNext7DaysAction implements MenuAction{
@@ -29,7 +26,6 @@ public class ScreeningsForNext7DaysAction implements MenuAction{
         }
         new PrintFilmScreenings(session.getChosenCinemaId(), LocalDateTime.now().plusDays(7)).print();
 
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Naciśnij ENTER...");
         scanner.nextLine();
     }

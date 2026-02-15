@@ -8,6 +8,7 @@ import java.util.HashSet;
 
 public class BookingForRegisteredCustomerAction implements MenuAction {
     private Session session;
+    private BookingService bs = new BookingService();
     public BookingForRegisteredCustomerAction(Session session) {
         this.session=session;
     }
@@ -19,8 +20,6 @@ public class BookingForRegisteredCustomerAction implements MenuAction {
 
     @Override
     public void execute() {
-        BookingService bs = new BookingService();
-
         if(session.getChosenSeatsId().isEmpty()){
             System.out.println("Wybierz miejsca do rezerwacji");
             return;

@@ -1,17 +1,15 @@
 package cinema.presentation.action;
 
-import cinema.presentation.print.PrintFilmScreenings;
 import cinema.presentation.print.PrintSeats;
-import cinema.service.FilmScreeningsService;
 import cinema.service.SeatsService;
 import cinema.session.Session;
 
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class ChooseSeatAction implements MenuAction {
     private Session session;
     private final Scanner scanner = new Scanner(System.in);
+    private final SeatsService ss = new SeatsService();
 
     public ChooseSeatAction(Session session) {
         this.session=session;
@@ -24,8 +22,6 @@ public class ChooseSeatAction implements MenuAction {
 
     @Override
     public void execute() {
-        SeatsService ss = new SeatsService();
-
         if(session.getChosenFilmScreeningId() == 0){
             System.out.println("Nie wybrałeś seansu filmowego");
             return;

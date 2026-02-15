@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class LoginAction implements MenuAction {
     private final Session session;
     private final Scanner scanner = new Scanner(System.in);
+    private final CustomersService customersService = new CustomersService();
 
     public LoginAction(Session session) {
         this.session = session;
@@ -20,8 +21,6 @@ public class LoginAction implements MenuAction {
 
     @Override
     public void execute() {
-        CustomersService customersService = new CustomersService();
-
         new PrintRegisteredCustomers().print();
 
         System.out.println("Wybierz klienta:");

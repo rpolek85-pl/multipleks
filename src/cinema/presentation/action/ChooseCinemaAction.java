@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class ChooseCinemaAction implements MenuAction {
     private Session session;
     private final Scanner scanner = new Scanner(System.in);
+    private final CinemasService cinemasService = new CinemasService();
 
     public ChooseCinemaAction(Session session) {
         this.session=session;
@@ -22,8 +23,6 @@ public class ChooseCinemaAction implements MenuAction {
 
     @Override
     public void execute() {
-        CinemasService cinemasService = new CinemasService();
-
         new PrintCinemas().print();
 
         System.out.println("Wybierz kino:");

@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class ChooseFilmScreeningAction implements MenuAction {
     private Session session;
     private final Scanner scanner = new Scanner(System.in);
+    private final FilmScreeningsService filmScreeningsService = new FilmScreeningsService();
 
     public ChooseFilmScreeningAction(Session session) {
         this.session=session;
@@ -23,8 +24,6 @@ public class ChooseFilmScreeningAction implements MenuAction {
 
     @Override
     public void execute() {
-        FilmScreeningsService filmScreeningsService = new FilmScreeningsService();
-
         if(session.getChosenCinemaId() == 0){
             System.out.println("Nie wybrałeś kina");
             return;

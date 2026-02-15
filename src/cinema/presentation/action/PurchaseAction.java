@@ -1,7 +1,5 @@
 package cinema.presentation.action;
 
-import cinema.presentation.provider.GuestMenuProvider;
-import cinema.presentation.provider.RegisterMenuProvider;
 import cinema.service.CustomersService;
 import cinema.service.PurchaseService;
 import cinema.session.Session;

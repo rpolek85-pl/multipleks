@@ -8,7 +8,6 @@ import java.util.Set;
 
 public class BookingService {
     private CustomersService customersService = new CustomersService();
-    private CinemasService cinemasService = new CinemasService();
     private FilmScreeningsService filmScreeningsService = new FilmScreeningsService();
     private SeatsService seatsService = new SeatsService();
 

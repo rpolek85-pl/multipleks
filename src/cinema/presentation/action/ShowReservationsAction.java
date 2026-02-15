@@ -8,11 +8,10 @@ import java.util.Scanner;
 
 public class ShowReservationsAction implements MenuAction {
     private Session session;
-    private BookingService bs = new BookingService();
+    private final BookingService bs = new BookingService();
+    private final Scanner scanner = new Scanner(System.in);
 
-    public ShowReservationsAction(Session session) {
-        this.session=session;
-    }
+    public ShowReservationsAction(Session session) {this.session=session;}
 
     @Override
     public String getName() {
@@ -23,7 +22,6 @@ public class ShowReservationsAction implements MenuAction {
     public void execute() {
         new PrintBooking(session.getCustomerId()).print();
 
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Wybierz rezerwacje:");
         String input = scanner.next();
 
