@@ -1,0 +1,98 @@
+@startuml
+
+class CinemaWorld {
+    - name : String
+    - address : String
+    - cinemas : List<Cinema>
+    - customers : List<Customer>
+    - reservations : List<Reservation>
+    - tickets : List<Ticket>
+}
+
+CinemaWorld "1" --> "*" Cinema
+CinemaWorld "1" --> "*" Customer
+CinemaWorld "1" --> "*" Reservation
+CinemaWorld "1" --> "*" Ticket
+
+class Cinema {
+    - id : int
+    - name : String
+    - address : String
+    - cinemaHalls : List<CinemaHall>
+}
+
+Cinema "1" --> "*" CinemaHall
+
+class CinemaHall {
+    - id : int
+    - name : String
+    - seats : List<Seat>
+}
+
+CinemaHall "1" --> "*" Seat
+
+class Seat {
+    - id : int
+    - rowLabel : RowLabel
+    - number : int
+    - type : SeatType
+    - status : SeatStatus
+}
+
+class Movie {
+    - id : int
+    - title : String
+    - duration : int
+    - type : MovieType
+}
+
+class FilmScreening {
+    - id : int
+    - movie : Movie
+    - cinemaHall : CinemaHall
+    - startDateTime : LocalDateTime
+    - type : FilmScreeningType
+}
+
+FilmScreening "*" --> "1" Movie
+FilmScreening "*" --> "1" CinemaHall
+
+abstract class Customer {
+    - id : int
+    - email : String
+}
+
+class GuestCustomer
+class RegisteredCustomer {
+    - password : String
+}
+
+Customer <|-- GuestCustomer
+Customer <|-- RegisteredCustomer
+
+class Reservation {
+    - id : int
+    - filmScreening : FilmScreening
+    - seatsId : Set<Integer>
+    - customer : Customer
+    - creationTime : LocalDateTime
+    - expirationTime : LocalDateTime
+    - status : ReservationStatus
+}
+
+Reservation "*" --> "1" FilmScreening
+Reservation "*" --> "1" Customer
+
+class Ticket {
+    - id : int
+    - filmScreening : FilmScreening
+    - seats : List<Seat>
+    - customer : Customer
+    - status : TicketStatus
+}
+
+Ticket "*" --> "1" FilmScreening
+Ticket "*" --> "1" Customer
+Ticket "1" --> "*" Seat
+
+@enduml
