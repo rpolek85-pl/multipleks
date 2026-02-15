@@ -1,6 +1,5 @@
 package cinema.presentation.print;
 
-import cinema.service.BookingService;
 import cinema.service.PurchaseService;
 
 import java.util.List;

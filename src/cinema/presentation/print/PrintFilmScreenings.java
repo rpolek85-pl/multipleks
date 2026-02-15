@@ -1,6 +1,5 @@
 package cinema.presentation.print;
 
-import cinema.entity.FilmScreening;
 import cinema.service.FilmScreeningsService;
 
 import java.time.LocalDateTime;

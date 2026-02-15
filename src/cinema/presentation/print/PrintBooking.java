@@ -3,7 +3,6 @@ package cinema.presentation.print;
 import cinema.service.BookingService;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class PrintBooking implements PrintInterface {
     private int userId;
