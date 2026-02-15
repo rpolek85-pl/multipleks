@@ -1,0 +1,3 @@
+package cinema.entity;
+
+public enum MoveType { ACTION, COMEDY, DRAMA, HORROR, SCI_FI, ROMANCE, THRILLER, FANTASY, DOCUMENTARY, WESTERN }
